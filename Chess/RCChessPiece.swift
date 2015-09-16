@@ -34,17 +34,19 @@ enum RCPieceColor: String {
 struct RCChessPiece {
   var type: RCPieceType
   var color: RCPieceColor
-  var moved: Bool
+  var moveHistory: [RCChessMove] = []
+  
+  var moved: Bool {
+    return moveHistory.count != 0
+  }
   
   init(type: RCPieceType = .Undefined, color: RCPieceColor = .Undefined) {
     self.type = type
     self.color = color
-    self.moved = false
   }
   
   init(copyPiece: RCChessPiece) {
     self.type = copyPiece.type
     self.color = copyPiece.color
-    self.moved = copyPiece.moved
   }
 }

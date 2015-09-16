@@ -179,11 +179,18 @@ class ViewController: NSViewController {
   }
   
   @IBAction func buttonPressed(sender: NSButton) {
+    // get the button's identifier, which is set to be the number in "column""row" format of the
+    // button's corresponding square
     let id = sender.identifier!
+    
+    // Getting the column and row from the number identifier
     let column = id.toInt()! / 10
     let row = id.toInt()! % 10
+    
+    // Creating a chess coordinate using retrieved column and row
     let coordinate = RCChessCoordinate(column: column, row: row)
     if let activeCoordinate = activeButtonCoordinate {
+      // The active coordinate exists
       var piece = chessBoard.board[activeCoordinate.column][activeCoordinate.row].piece
       if  piece?.color == turnColor {
         var move = RCChessMove(start: activeCoordinate, destination: coordinate, piece: piece!)
@@ -213,10 +220,6 @@ class ViewController: NSViewController {
     case kingInCheck
     case invalidMove
     case none
-  }
-  
-  func notifyPlayer(notification: String) {
-    notificationLabel.stringValue = notification
   }
   
   func switchTurn() {

@@ -51,8 +51,8 @@ class RCChessBoard {
       // Determining if this is an en passant capture
       let opponentPieceEnPassant: Bool
       if let piece = board[proposedMove.destination.column][proposedMove.start.row].piece {
-        // There is a piece en passant, determine if it is of a different color
-        opponentPieceEnPassant = piece.color != proposedMove.piece.color
+        // There is a piece en passant, determine if it is a different color pawn
+        opponentPieceEnPassant = validCaptureForEnPassant(piece)
       } else {
         opponentPieceEnPassant = false
       }
@@ -140,6 +140,24 @@ class RCChessBoard {
     
     // None of the possible moves were used, return a nil ChessMove
     else { return nil }
+  }
+  
+  // Checking if the piece that can be captured en passant is valid to be captured as such
+  func validCaptureForEnPassant(piece: RCChessPiece) -> Bool {
+    // The piece needs to be a pawn that has only moved once
+    if piece.type == .Pawn && piece.moveHistory.count == 1 {
+      // Getting the last move of the piece
+      let lastMove = piece.moveHistory[0]
+      
+      // The last piece was a two forward pawn move
+      if abs(lastMove.rowMovement) == 2 && lastMove.columnMovement == 0 {
+        return true
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
   }
   
   // Specific function to determine if a rook move is legal
@@ -408,13 +426,13 @@ class RCChessBoard {
   
   
   // The performMove function will look at the flags in the given move that is passed to it and
-  // perform the move according to haow it should be done.  If a move is special, it will need to be
+  // perform the move according to how it should be done.  If a move is special, it will need to be
   // handled differently from the rest of the moves that are possible.
   
   // Function to perform a given move
   func performMove(moveToPerform: RCChessMove) {
-    // Indicating that the piece has now been moved
-    moveToPerform.piece.moved = true
+    // Saving the move to the piece's move history
+    moveToPerform.piece.moveHistory.append(moveToPerform)
     
     // Switching the flag to take care of the different special moves that may be being performed
     switch moveToPerform.flag {
@@ -497,7 +515,9 @@ class RCChessBoard {
     -> Bool {
       // Perfrom the move and check whether the king is in check after the move
       var testBoard = RCChessBoard(board: board)
-      testBoard.performMove(moveToPerform)
+      if let validMove = verifyMove(moveToPerform) {
+        testBoard.performMove(moveToPerform)
+      }
       let check = testBoard.isKingInCheck(moveToPerform.piece.color)
       return check
   }
@@ -604,10 +624,10 @@ class RCChessBoard {
         var move = RCChessMove(start: testingSquare.coordinate, destination: square.coordinate,
           piece: testingSquare.piece!)
         if !performKingCheckTest(move) {
-          return false
+          return true
         }
       }
     }
-    return true
+    return false
   }
 }
