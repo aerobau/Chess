@@ -35,18 +35,23 @@ struct RCChessPiece {
   var type: RCPieceType
   var color: RCPieceColor
   var moveHistory: [RCChessMove] = []
+  let moveVerifier: RCMoveVerifier
   
   var moved: Bool {
     return moveHistory.count != 0
   }
   
-  init(type: RCPieceType = .Undefined, color: RCPieceColor = .Undefined) {
+  init(type: RCPieceType = .Undefined, color: RCPieceColor = .Undefined,
+    moveVerifier: RCMoveVerifier = RCMoveVerifier()) {
     self.type = type
     self.color = color
+    self.moveVerifier = moveVerifier
   }
   
   init(copyPiece: RCChessPiece) {
     self.type = copyPiece.type
     self.color = copyPiece.color
+    self.moveHistory = copyPiece.moveHistory
+    self.moveVerifier = copyPiece.moveVerifier
   }
 }

@@ -9,31 +9,31 @@
 import Foundation
 import Cocoa
 
-class RCFactory : NSObject {
+class RCFactory {
   class func prepareChessBoard() -> RCChessBoard {
     // Pawn creation
-    let whitePawn = RCChessPiece(type: .Pawn, color: .White)
-    let blackPawn = RCChessPiece(type: .Pawn, color: .Black)
+    let whitePawn = RCChessPiece(type: .Pawn, color: .White, moveVerifier: RCPawnMoveVerifier())
+    let blackPawn = RCChessPiece(type: .Pawn, color: .Black, moveVerifier: RCPawnMoveVerifier())
     
     // Knight creation
-    let whiteKnight = RCChessPiece(type: .Knight, color: .White)
-    let blackKnight = RCChessPiece(type: .Knight, color: .Black)
+    let whiteKnight = RCChessPiece(type: .Knight, color: .White, moveVerifier: RCKnightMoveVerifier())
+    let blackKnight = RCChessPiece(type: .Knight, color: .Black, moveVerifier: RCKnightMoveVerifier())
     
     // Rook creation
-    let whiteRook = RCChessPiece(type: .Rook, color: .White)
-    let blackRook = RCChessPiece(type: .Rook, color: .Black)
+    let whiteRook = RCChessPiece(type: .Rook, color: .White, moveVerifier: RCRookMoveVerifier())
+    let blackRook = RCChessPiece(type: .Rook, color: .Black, moveVerifier: RCRookMoveVerifier())
     
     // Bishop creation
-    let whiteBishop = RCChessPiece(type: .Bishop, color: .White)
-    let blackBishop = RCChessPiece(type: .Bishop, color: .Black)
+    let whiteBishop = RCChessPiece(type: .Bishop, color: .White, moveVerifier: RCBishopMoveVerifier())
+    let blackBishop = RCChessPiece(type: .Bishop, color: .Black, moveVerifier: RCBishopMoveVerifier())
     
     // Queen creation
-    let whiteQueen = RCChessPiece(type: .Queen, color: .White)
-    let blackQueen = RCChessPiece(type: .Queen, color: .Black)
+    let whiteQueen = RCChessPiece(type: .Queen, color: .White, moveVerifier: RCQueenMoveVerifier())
+    let blackQueen = RCChessPiece(type: .Queen, color: .Black, moveVerifier: RCQueenMoveVerifier())
     
     // King creation
-    let whiteKing = RCChessPiece(type: .King, color: .White)
-    let blackKing = RCChessPiece(type: .King, color: .Black)
+    let whiteKing = RCChessPiece(type: .King, color: .White, moveVerifier: RCKingMoveVerifier())
+    let blackKing = RCChessPiece(type: .King, color: .Black, moveVerifier: RCKingMoveVerifier())
     
     var preparedBoard: [[RCChessSquare]] = []
     for var i = 0; i < 8; i++ {
@@ -101,7 +101,6 @@ class RCFactory : NSObject {
         }
       }
     }
-    let preparedChessBoard = RCChessBoard(board: preparedBoard)
-    return preparedChessBoard
+    return RCChessBoard(board: preparedBoard)
   }
 }

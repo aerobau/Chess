@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6C46B7B1BAB41B300EE5EBD /* RCMoveVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C46B7A1BAB41B300EE5EBD /* RCMoveVerifier.swift */; };
+		D6C46B7D1BAB429200EE5EBD /* RCPawnMoveVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C46B7C1BAB429200EE5EBD /* RCPawnMoveVerifier.swift */; };
+		D6C46B7F1BAFAF0D00EE5EBD /* RCKnightMoveVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C46B7E1BAFAF0D00EE5EBD /* RCKnightMoveVerifier.swift */; };
+		D6C46B811BAFB01E00EE5EBD /* RCRookMoveVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C46B801BAFB01E00EE5EBD /* RCRookMoveVerifier.swift */; };
+		D6C46B831BAFB3CC00EE5EBD /* RCBishopMoveVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C46B821BAFB3CC00EE5EBD /* RCBishopMoveVerifier.swift */; };
+		D6C46B851BAFB42700EE5EBD /* RCQueenMoveVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C46B841BAFB42700EE5EBD /* RCQueenMoveVerifier.swift */; };
+		D6C46B871BAFB4BB00EE5EBD /* RCKingMoveVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C46B861BAFB4BB00EE5EBD /* RCKingMoveVerifier.swift */; };
 		D6EEB1171B7B973800539751 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EEB1161B7B973800539751 /* AppDelegate.swift */; };
 		D6EEB1191B7B973800539751 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EEB1181B7B973800539751 /* ViewController.swift */; };
 		D6EEB11B1B7B973800539751 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6EEB11A1B7B973800539751 /* Images.xcassets */; };
@@ -42,6 +49,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D6C46B7A1BAB41B300EE5EBD /* RCMoveVerifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCMoveVerifier.swift; sourceTree = "<group>"; };
+		D6C46B7C1BAB429200EE5EBD /* RCPawnMoveVerifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCPawnMoveVerifier.swift; sourceTree = "<group>"; };
+		D6C46B7E1BAFAF0D00EE5EBD /* RCKnightMoveVerifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCKnightMoveVerifier.swift; sourceTree = "<group>"; };
+		D6C46B801BAFB01E00EE5EBD /* RCRookMoveVerifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCRookMoveVerifier.swift; sourceTree = "<group>"; };
+		D6C46B821BAFB3CC00EE5EBD /* RCBishopMoveVerifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCBishopMoveVerifier.swift; sourceTree = "<group>"; };
+		D6C46B841BAFB42700EE5EBD /* RCQueenMoveVerifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCQueenMoveVerifier.swift; sourceTree = "<group>"; };
+		D6C46B861BAFB4BB00EE5EBD /* RCKingMoveVerifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCKingMoveVerifier.swift; sourceTree = "<group>"; };
 		D6EEB1111B7B973800539751 /* Chess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EEB1151B7B973800539751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6EEB1161B7B973800539751 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +102,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D6C46B881BAFB5B500EE5EBD /* Move Verification */ = {
+			isa = PBXGroup;
+			children = (
+				D6C46B7E1BAFAF0D00EE5EBD /* RCKnightMoveVerifier.swift */,
+				D6C46B801BAFB01E00EE5EBD /* RCRookMoveVerifier.swift */,
+				D6C46B7A1BAB41B300EE5EBD /* RCMoveVerifier.swift */,
+				D6C46B7C1BAB429200EE5EBD /* RCPawnMoveVerifier.swift */,
+				D6C46B861BAFB4BB00EE5EBD /* RCKingMoveVerifier.swift */,
+				D6C46B841BAFB42700EE5EBD /* RCQueenMoveVerifier.swift */,
+				D6C46B821BAFB3CC00EE5EBD /* RCBishopMoveVerifier.swift */,
+			);
+			name = "Move Verification";
+			sourceTree = "<group>";
+		};
 		D6EEB1081B7B973800539751 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				D6EEB1331B7BA3AC00539751 /* RCFactory.swift */,
+				D6C46B881BAFB5B500EE5EBD /* Move Verification */,
 				D6EEB1341B7BA3AC00539751 /* RCChessSquare.swift */,
 				D6EEB1351B7BA3AC00539751 /* RCChessPiece.swift */,
 				D6EEB1361B7BA3AC00539751 /* RCChessBoard.swift */,
@@ -212,6 +241,8 @@
 		D6EEB1091B7B973800539751 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Alexander Robau";
 				TargetAttributes = {
@@ -281,10 +312,17 @@
 			files = (
 				D6EEB1191B7B973800539751 /* ViewController.swift in Sources */,
 				D6EEB1171B7B973800539751 /* AppDelegate.swift in Sources */,
+				D6C46B831BAFB3CC00EE5EBD /* RCBishopMoveVerifier.swift in Sources */,
 				D6EEB1391B7BA3AC00539751 /* RCChessSquare.swift in Sources */,
 				D6EEB1381B7BA3AC00539751 /* RCFactory.swift in Sources */,
 				D6EEB13C1B7BA3AC00539751 /* RCChessMove.swift in Sources */,
+				D6C46B851BAFB42700EE5EBD /* RCQueenMoveVerifier.swift in Sources */,
+				D6C46B7D1BAB429200EE5EBD /* RCPawnMoveVerifier.swift in Sources */,
+				D6C46B7F1BAFAF0D00EE5EBD /* RCKnightMoveVerifier.swift in Sources */,
+				D6C46B7B1BAB41B300EE5EBD /* RCMoveVerifier.swift in Sources */,
 				D6EEB13B1B7BA3AC00539751 /* RCChessBoard.swift in Sources */,
+				D6C46B811BAFB01E00EE5EBD /* RCRookMoveVerifier.swift in Sources */,
+				D6C46B871BAFB4BB00EE5EBD /* RCKingMoveVerifier.swift in Sources */,
 				D6EEB13A1B7BA3AC00539751 /* RCChessPiece.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +514,7 @@
 				D6EEB12F1B7B973800539751 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D6EEB1301B7B973800539751 /* Build configuration list for PBXNativeTarget "ChessTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +523,7 @@
 				D6EEB1321B7B973800539751 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

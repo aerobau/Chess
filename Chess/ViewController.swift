@@ -184,16 +184,16 @@ class ViewController: NSViewController {
     let id = sender.identifier!
     
     // Getting the column and row from the number identifier
-    let column = id.toInt()! / 10
-    let row = id.toInt()! % 10
+    let column = Int(id)! / 10
+    let row = Int(id)! % 10
     
     // Creating a chess coordinate using retrieved column and row
     let coordinate = RCChessCoordinate(column: column, row: row)
     if let activeCoordinate = activeButtonCoordinate {
       // The active coordinate exists
-      var piece = chessBoard.board[activeCoordinate.column][activeCoordinate.row].piece
+      let piece = chessBoard[activeCoordinate.column][activeCoordinate.row].piece
       if  piece?.color == turnColor {
-        var move = RCChessMove(start: activeCoordinate, destination: coordinate, piece: piece!)
+        let move = RCChessMove(start: activeCoordinate, destination: coordinate, piece: piece!)
         if let validMove = chessBoard.verifyMove(move) {
           if !chessBoard.performKingCheckTest(move) {
             chessBoard.performMove(move)
